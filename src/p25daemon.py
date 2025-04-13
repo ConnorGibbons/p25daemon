@@ -45,6 +45,11 @@ def move_and_transcribe(model):
     logging.info(f"Successfully transcribed file: {audio_path} as {dest}")
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+    os.makedirs("logs", exist_ok=True)
+    log_filename = datetime.date.today().strftime("logs/%Y-%m-%d.log")
+    logging.basicConfig(level=logging.INFO, 
+                        format="%(asctime)s [%(levelname)s] %(message)s",
+                        handlers=[logging.FileHandler(log_filename), logging.StreamHandler()]
+                        )
     model = whisper.load_model("turbo", device="cuda", in_memory=True)
     move_and_transcribe(model)

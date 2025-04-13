@@ -1,0 +1,3 @@
+logs/*.log
+src/__pycache__/p25daemon.cpython-311.pyc
+src/__pycache__/*.pyc
