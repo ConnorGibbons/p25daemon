@@ -18,7 +18,6 @@ def seconds_until_next_run(hour = 0, minute = 1):
     logging.info(f"Next Run: {next_run.isoformat()}")
     return (next_run - now).total_seconds()
 
-
 def sleep_until_next_run(next_run_hour = config.RUN_TIME_HOUR, next_run_minute = config.RUN_TIME_MINUTE):
     sleep_time = seconds_until_next_run(hour = next_run_hour, minute = next_run_minute)
     logging.info(f"Sleeping for {sleep_time/3600:.2f} hours until next run.")

@@ -123,3 +123,25 @@ Error opening input files: Invalid data found when processing input
 2025-04-14 14:58:49,388 - INFO - Now: 2025-04-14T14:58:49.388734
 2025-04-14 14:58:49,388 - INFO - Next Run: 2025-04-14T23:50:00
 2025-04-14 14:58:49,388 - INFO - Sleeping for 8.85 hours until next run.
+2025-04-14 15:09:27,367 - INFO - Starting p25daemon, using model large-v3 on cuda
+2025-04-14 15:09:27,405 - ERROR - Error truncating DSDPlus recording: [Errno 13] Permission denied: 'C:\\Users\\conno\\Documents\\DSDPlus1p101\\DSDPlus.wav'
+2025-04-14 15:09:27,405 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 15:09:29,458 - INFO - Killed DSDPlus process, truncating file.
+2025-04-14 15:09:29,458 - INFO - Truncation successful, relaunching DSDPlus.
+2025-04-14 15:09:29,464 - INFO - Truncated DSDPlus recording successfully.
+2025-04-14 15:09:29,464 - INFO - Saved DSDPlus recording to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 15:17:20,165 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 15:17:20,167 - INFO - Now: 2025-04-14T15:17:20.167712
+2025-04-14 15:17:20,167 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 15:17:20,167 - INFO - Sleeping for 8.54 hours until next run.
+2025-04-14 15:19:56,994 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 15:19:57,036 - ERROR - Error truncating DSDPlus recording: [Errno 13] Permission denied: 'C:\\Users\\conno\\Documents\\DSDPlus1p101\\DSDPlus.wav'
+2025-04-14 15:19:57,036 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 15:19:59,090 - INFO - Killed DSDPlus process, truncating file.
+2025-04-14 15:19:59,091 - INFO - Truncation successful, relaunching DSDPlus.
+2025-04-14 15:19:59,097 - INFO - Truncated DSDPlus recording successfully.
+2025-04-14 15:19:59,097 - INFO - Saved DSDPlus recording to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 15:20:14,069 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 15:20:14,071 - INFO - Now: 2025-04-14T15:20:14.071655
+2025-04-14 15:20:14,071 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 15:20:14,071 - INFO - Sleeping for 8.50 hours until next run.

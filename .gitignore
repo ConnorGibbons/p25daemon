@@ -1,7 +1,7 @@
 logs/*.log
 src/__pycache__/p25daemon.cpython-311.pyc
 src/__pycache__/*.pyc
+__pycache__/*.pyc
 *.pyc
 logs/p25daemon
 .DS_Store
-logs/p25daemon
