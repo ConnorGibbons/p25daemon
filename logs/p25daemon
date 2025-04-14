@@ -1,2 +1,6 @@
 2025-04-14 00:18:42,189 - INFO - Moved file from C:\Users\conno\Documents\DSDPlus1p101\DSDPlus.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
 2025-04-14 00:18:42,189 - ERROR - Error truncating DSDPlus recording: [Errno 13] Permission denied: 'C:\\Users\\conno\\Documents\\DSDPlus1p101\\DSDPlus.wav'
+2025-04-14 00:21:44,028 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 00:21:44,102 - INFO - Now: 2025-04-14T00:21:44.102989
+2025-04-14 00:21:44,102 - INFO - Next Run: 2025-04-15T00:01:00
+2025-04-14 00:21:44,103 - INFO - Sleeping for 23.65 hours until next run.
