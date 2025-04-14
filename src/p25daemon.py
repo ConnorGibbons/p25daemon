@@ -2,7 +2,7 @@ import os
 import datetime
 import logging
 import config
-from src.utils import truncate_file, make_file_with_contents, log_error, copy_file
+from src.utils import truncate_file, make_file_with_contents, log_error, copy_file, kill_dsdplus, launch_dsdplus
 
 def move_current_DSDPlus_recording():
     """
@@ -22,6 +22,22 @@ def move_current_DSDPlus_recording():
             truncate_result = truncate_file(src)
             if not truncate_result[0]:
                 log_error("Error truncating DSDPlus recording", truncate_result)
+                logging.info("Attempting to kill DSDPlus, truncate, and relaunch.")
+                kill_result = kill_dsdplus()
+                if not kill_result[0]:
+                    log_error("Error killing DSDPlus process after truncation error", kill_result)
+                    return None
+                logging.info("Killed DSDPlus process, truncating file.")
+                truncate_result = truncate_file(src)
+                if not truncate_result[0]:
+                    log_error("Error truncating DSDPlus recording after kill", truncate_result)
+                    return None
+                logging.info("Truncation successful, relaunching DSDPlus.")
+                launch_result = launch_dsdplus()
+                if not launch_result[0]:
+                    log_error("Error launching DSDPlus after truncation error", launch_result)
+                    return None
+            logging.info("Truncated DSDPlus recording successfully.")
         else:
             logging.warning("Skipped truncating DSDPlus recording! Check config if you're not testing.")
         return dest
@@ -61,10 +77,10 @@ def move_and_transcribe(model):
         model: The transcription model to use. (turbo, base, small, medium, large)
     """
     audio_path = move_current_DSDPlus_recording()
-    
     if not audio_path:
-        logging.info("No new DSDPlus recording found. Skipping transcription.")
+        logging.info("No new DSDPlus recording found or an error occured truncating the recording. Skipping transcription.")
         return
+    logging.info(f"Saved DSDPlus recording to {os.path.abspath(audio_path)}")
 
     try:
         transcription = transcribe_audio_file(audio_path, model)

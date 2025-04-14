@@ -10,5 +10,6 @@ RUN_TIME_MINUTE = 50
 WHISPER_MODEL = "turbo"
 WHISPER_DEVICE = "cuda" # Options are: "cpu", "cuda" (NVIDIA GPU), "mps" (Apple Silicon)
 WHISPER_PROMPT = "Transcribe the following audio file containing Marlborough, MA police radio traffic."
-TRUNCATE_DSDPLUS_FILE = False # Adjust this if testing the script, so you don't delete your DSDPlus recording.
+TRUNCATE_DSDPLUS_FILE = True # Adjust this if testing the script, so you don't delete your DSDPlus recording.
 RUN_IMMEDIATELY = True # Adjust this if testing the script, so you don't have to wait until the next run time.
+DSDPLUS_LAUNCH_ARGS = "-i4"

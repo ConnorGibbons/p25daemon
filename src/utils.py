@@ -1,6 +1,27 @@
 import os
 import shutil
 import logging
+import subprocess
+import time
+import config
+
+def launch_dsdplus():
+    path = os.path.join(config.DSDPLUS_INSTALL_PATH, "DSDPlus.exe")
+    args = config.DSDPLUS_LAUNCH_ARGS.split()
+    try:
+        subprocess.Popen([path] + args)
+        return (True, None)
+    except Exception as e:
+        return (False, e.__str__())
+    
+def kill_dsdplus():
+    path = os.path.join(config.DSDPLUS_INSTALL_PATH, "DSDPlus.exe")
+    try:
+        subprocess.run(["taskkill", "/F", "/IM", os.path.basename(path)], check=True)
+        time.sleep(2)
+        return (True, None)
+    except Exception as e:
+        return (False, e.__str__())
 
 def move_file(src, dest):
     try:

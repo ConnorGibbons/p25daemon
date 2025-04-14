@@ -4,3 +4,4 @@ src/__pycache__/*.pyc
 *.pyc
 logs/p25daemon
 .DS_Store
+logs/p25daemon
