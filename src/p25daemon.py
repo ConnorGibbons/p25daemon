@@ -2,17 +2,17 @@ import os
 import datetime
 import logging
 import config
-from src.utils import truncate_file, make_file_with_contents, log_error, copy_file, kill_dsdplus, launch_dsdplus
+from multiprocessing import Queue, Process
+from src.utils import truncate_file, make_file_with_contents, log_error, copy_file, kill_DSDPlus, launch_DSDPlus
 
-def move_current_DSDPlus_recording():
+def move_current_DSDPlus_recording(datetime_today = datetime.date.today()):
     """
     Moves the current DSDPlus recording file to the archive directory and truncates the source file.
     
     Returns:
         str or None: The destination path of the moved file if successful, None if the move failed.
     """
-    today = datetime.date.today()
-    output_file_name = today.strftime(config.AUDIO_FILENAME_FORMAT)
+    output_file_name = datetime_today.strftime(config.AUDIO_FILENAME_FORMAT)
     src = os.path.join(config.DSDPLUS_INSTALL_PATH, "DSDPlus.wav")
     dest = os.path.join(config.AUDIO_ARCHIVE_PATH, output_file_name)
     result = copy_file(src, dest)
@@ -20,10 +20,10 @@ def move_current_DSDPlus_recording():
     if result[0]:
         if config.TRUNCATE_DSDPLUS_FILE:
             truncate_result = truncate_file(src)
-            if not truncate_result[0]:
+            if not truncate_result[0] or config.FORCE_DSDPLUS_RESTART:
                 log_error("Error truncating DSDPlus recording", truncate_result)
                 logging.info("Attempting to kill DSDPlus, truncate, and relaunch.")
-                kill_result = kill_dsdplus()
+                kill_result = kill_DSDPlus()
                 if not kill_result[0]:
                     log_error("Error killing DSDPlus process after truncation error", kill_result)
                     return None
@@ -33,7 +33,7 @@ def move_current_DSDPlus_recording():
                     log_error("Error truncating DSDPlus recording after kill", truncate_result)
                     return None
                 logging.info("Truncation successful, relaunching DSDPlus.")
-                launch_result = launch_dsdplus()
+                launch_result = launch_DSDPlus()
                 if not launch_result[0]:
                     log_error("Error launching DSDPlus after truncation error", launch_result)
                     return None
@@ -43,28 +43,25 @@ def move_current_DSDPlus_recording():
         return dest
     
     log_error("Error moving DSDPlus recording", result)
-    return None
+    return None    
 
-def transcribe_audio_file(audio_path, model):
-    """
-    Transcribes an audio file using the provided model.
-    
-    Args:
-        audio_path (str): Path to the audio file to transcribe.
-        model: The transcription model to use.
-    
-    Returns:
-        str: The transcribed text from the audio file.
-    """
+def transcribe_audio_file_worker(audio_path, queue):
+    import whisper
+    model = whisper.load_model(config.WHISPER_MODEL, device = config.WHISPER_DEVICE)
     prompt = config.WHISPER_PROMPT
-    result = model.transcribe(audio_path, initial_prompt = prompt, language="en")
-    if "segments" in result:
-        transcript = "\n".join([segment["text"].strip() for segment in result["segments"]])
-    else:
-        transcript = result.get("text", "")
-    return transcript
+    try:
+        result = model.transcribe(audio_path, initial_prompt = prompt, language="en")
+        if "segments" in result:
+            transcript = "\n".join([segment["text"].strip() for segment in result["segments"]])
+        else:
+            transcript = result.get("text", "")
+        queue.put(transcript)
+    except Exception as e:
+        logging.error(f"Transcription failed: {e}")
+        queue.put(None)
 
-def move_and_transcribe(model):
+
+def move_and_transcribe(datetime_today = datetime.date.today()):
     """
     Moves the current DSDPlus recording and transcribes it.
     
@@ -75,23 +72,25 @@ def move_and_transcribe(model):
     
     Args:
         model: The transcription model to use. (turbo, base, small, medium, large)
+        datetime_today (datetime): The date to use for file naming --> Important because this operation could take significant time, causing the filename to be wrong if ran late.
     """
-    audio_path = move_current_DSDPlus_recording()
+    audio_path = move_current_DSDPlus_recording(datetime_today = datetime_today)
     if not audio_path:
         logging.info("No new DSDPlus recording found or an error occured truncating the recording. Skipping transcription.")
         return
     logging.info(f"Saved DSDPlus recording to {os.path.abspath(audio_path)}")
 
-    try:
-        transcription = transcribe_audio_file(audio_path, model)
-    except Exception as e:
-        logging.error(f"Transcription failed: {e}")
-        return
+    queue = Queue()
+    p = Process(target=transcribe_audio_file_worker, args=(audio_path, queue))
+    p.start()
+    p.join()
+
+    transcription = queue.get()
     if not transcription:
-        logging.warning("Transcription completed but returned no text.")
+        logging.error("Transcription failed or returned empty result.")
         return
 
-    output_file_name = datetime.date.today().strftime(config.TRANSCRIPT_FILENAME_FORMAT)
+    output_file_name = datetime_today.strftime(config.TRANSCRIPT_FILENAME_FORMAT)
     dest = os.path.join(config.TRANSCRIPT_ARCHIVE_PATH, output_file_name)
 
     make_file_result = make_file_with_contents(dest, transcription)

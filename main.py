@@ -4,8 +4,6 @@ import logging
 import traceback
 import gc
 from logging.handlers import TimedRotatingFileHandler
-import torch
-import whisper
 import config
 from src.p25daemon import move_and_transcribe
 import os
@@ -25,12 +23,6 @@ def sleep_until_next_run(next_run_hour = config.RUN_TIME_HOUR, next_run_minute =
     sleep_time = seconds_until_next_run(hour = next_run_hour, minute = next_run_minute)
     logging.info(f"Sleeping for {sleep_time/3600:.2f} hours until next run.")
     time.sleep(sleep_time)
-
-def cleanup_resources(model = None):
-    if model:
-        del model
-        gc.collect()
-        torch.cuda.empty_cache()
 
 def main():
     try:
@@ -56,19 +48,19 @@ def main():
             sleep_until_next_run()
 
         while True:
+            datetime_today = datetime.date.today()
             try:
-                model = whisper.load_model(config.WHISPER_MODEL, device = config.WHISPER_DEVICE)
-                move_and_transcribe(model)
+                move_and_transcribe(datetime_today)
             except Exception as e:
                 logging.error(f"Error in move_and_transcribe: {e}")
             finally:
-                cleanup_resources(model)
+                gc.collect()
             sleep_until_next_run()
     except Exception as e:
         logging.error(f"Fatal error: {e}")
         logging.error(traceback.format_exc())
     finally:
-        cleanup_resources()
+        gc.collect()
     
 
 if __name__ == "__main__":

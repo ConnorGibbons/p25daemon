@@ -19,3 +19,107 @@
 2025-04-14 00:46:50,198 - INFO - Now: 2025-04-14T00:46:50.198567
 2025-04-14 00:46:50,198 - INFO - Next Run: 2025-04-15T00:01:00
 2025-04-14 00:46:50,198 - INFO - Sleeping for 23.24 hours until next run.
+2025-04-14 12:29:37,345 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 12:29:43,831 - ERROR - Error truncating DSDPlus recording: [Errno 13] Permission denied: 'C:\\Users\\conno\\Documents\\DSDPlus1p101\\DSDPlus.wav'
+2025-04-14 12:29:43,831 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 12:29:45,888 - INFO - Killed DSDPlus process, truncating file.
+2025-04-14 12:29:45,888 - INFO - Truncation successful, relaunching DSDPlus.
+2025-04-14 12:29:45,899 - INFO - Truncated DSDPlus recording successfully.
+2025-04-14 12:29:45,899 - INFO - Saved DSDPlus recording to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 12:29:47,570 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 12:29:47,622 - INFO - Now: 2025-04-14T12:29:47.622244
+2025-04-14 12:29:47,622 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 12:29:47,622 - INFO - Sleeping for 11.34 hours until next run.
+2025-04-14 12:34:08,772 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 12:34:15,385 - INFO - Truncated DSDPlus recording successfully.
+2025-04-14 12:34:15,386 - INFO - Saved DSDPlus recording to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 12:34:15,703 - ERROR - Transcription failed: Failed to load audio: ffmpeg version 7.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.101 / 61. 19.101
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+[in#0 @ 00000194fe961dc0] Error opening input: Invalid data found when processing input
+Error opening input file \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav.
+Error opening input files: Invalid data found when processing input
+
+2025-04-14 12:34:15,751 - INFO - Now: 2025-04-14T12:34:15.751360
+2025-04-14 12:34:15,751 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 12:34:15,752 - INFO - Sleeping for 11.26 hours until next run.
+2025-04-14 13:51:05,874 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 13:51:12,514 - ERROR - Error truncating DSDPlus recording: [Errno 13] Permission denied: 'C:\\Users\\conno\\Documents\\DSDPlus1p101\\DSDPlus.wav'
+2025-04-14 13:51:12,514 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 13:51:14,569 - INFO - Killed DSDPlus process, truncating file.
+2025-04-14 13:51:14,570 - INFO - Truncation successful, relaunching DSDPlus.
+2025-04-14 13:51:14,571 - ERROR - Error launching DSDPlus after truncation error: [WinError 87] The parameter is incorrect
+2025-04-14 13:51:14,571 - INFO - No new DSDPlus recording found or an error occured truncating the recording. Skipping transcription.
+2025-04-14 13:51:14,613 - INFO - Now: 2025-04-14T13:51:14.613466
+2025-04-14 13:51:14,613 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 13:51:14,613 - INFO - Sleeping for 9.98 hours until next run.
+2025-04-14 13:53:57,752 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 13:54:04,340 - ERROR - Error truncating DSDPlus recording: None
+2025-04-14 13:54:04,340 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 13:54:04,394 - ERROR - Error killing DSDPlus process after truncation error: Command '['taskkill', '/F', '/IM', 'DSDPlus.exe']' returned non-zero exit status 128.
+2025-04-14 13:54:04,394 - INFO - No new DSDPlus recording found or an error occured truncating the recording. Skipping transcription.
+2025-04-14 13:54:04,442 - INFO - Now: 2025-04-14T13:54:04.442417
+2025-04-14 13:54:04,443 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 13:54:04,443 - INFO - Sleeping for 9.93 hours until next run.
+2025-04-14 14:08:38,284 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 14:08:44,955 - ERROR - Error truncating DSDPlus recording: [Errno 13] Permission denied: 'C:\\Users\\conno\\Documents\\DSDPlus1p101\\DSDPlus.wav'
+2025-04-14 14:08:44,955 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 14:08:47,011 - INFO - Killed DSDPlus process, truncating file.
+2025-04-14 14:08:47,012 - INFO - Truncation successful, relaunching DSDPlus.
+2025-04-14 14:08:47,013 - ERROR - Error launching DSDPlus after truncation error: [WinError 87] The parameter is incorrect
+2025-04-14 14:08:47,013 - INFO - No new DSDPlus recording found or an error occured truncating the recording. Skipping transcription.
+2025-04-14 14:08:47,058 - INFO - Now: 2025-04-14T14:08:47.058682
+2025-04-14 14:08:47,059 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 14:08:47,059 - INFO - Sleeping for 9.69 hours until next run.
+2025-04-14 14:12:23,774 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 14:12:30,388 - ERROR - Error truncating DSDPlus recording: None
+2025-04-14 14:12:30,388 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 14:12:32,441 - INFO - Killed DSDPlus process, truncating file.
+2025-04-14 14:12:32,441 - INFO - Truncation successful, relaunching DSDPlus.
+2025-04-14 14:12:32,449 - INFO - Truncated DSDPlus recording successfully.
+2025-04-14 14:12:32,449 - INFO - Saved DSDPlus recording to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 14:12:52,393 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 14:12:52,442 - INFO - Now: 2025-04-14T14:12:52.442275
+2025-04-14 14:12:52,442 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 14:12:52,442 - INFO - Sleeping for 9.62 hours until next run.
+2025-04-14 14:31:13,674 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 14:31:20,199 - ERROR - Error truncating DSDPlus recording: None
+2025-04-14 14:31:20,199 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 14:31:22,253 - INFO - Killed DSDPlus process, truncating file.
+2025-04-14 14:31:22,253 - INFO - Truncation successful, relaunching DSDPlus.
+2025-04-14 14:31:22,260 - INFO - Truncated DSDPlus recording successfully.
+2025-04-14 14:31:22,260 - INFO - Saved DSDPlus recording to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 14:31:23,996 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 14:31:24,044 - INFO - Now: 2025-04-14T14:31:24.044671
+2025-04-14 14:31:24,044 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 14:31:24,044 - INFO - Sleeping for 9.31 hours until next run.
+2025-04-14 14:34:30,152 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 14:34:36,655 - ERROR - Error truncating DSDPlus recording: [Errno 13] Permission denied: 'C:\\Users\\conno\\Documents\\DSDPlus1p101\\DSDPlus.wav'
+2025-04-14 14:34:36,655 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 14:34:38,706 - INFO - Killed DSDPlus process, truncating file.
+2025-04-14 14:34:38,706 - INFO - Truncation successful, relaunching DSDPlus.
+2025-04-14 14:34:38,713 - INFO - Truncated DSDPlus recording successfully.
+2025-04-14 14:34:38,714 - INFO - Saved DSDPlus recording to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 14:34:40,447 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 14:34:40,497 - INFO - Now: 2025-04-14T14:34:40.497204
+2025-04-14 14:34:40,497 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 14:34:40,497 - INFO - Sleeping for 9.26 hours until next run.
+2025-04-14 14:58:35,702 - INFO - Starting p25daemon, using model turbo on cuda
+2025-04-14 14:58:35,747 - ERROR - Error truncating DSDPlus recording: [Errno 13] Permission denied: 'C:\\Users\\conno\\Documents\\DSDPlus1p101\\DSDPlus.wav'
+2025-04-14 14:58:35,747 - INFO - Attempting to kill DSDPlus, truncate, and relaunch.
+2025-04-14 14:58:37,799 - INFO - Killed DSDPlus process, truncating file.
+2025-04-14 14:58:37,800 - INFO - Truncation successful, relaunching DSDPlus.
+2025-04-14 14:58:37,806 - INFO - Truncated DSDPlus recording successfully.
+2025-04-14 14:58:37,806 - INFO - Saved DSDPlus recording to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 14:58:49,387 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 14:58:49,388 - INFO - Now: 2025-04-14T14:58:49.388734
+2025-04-14 14:58:49,388 - INFO - Next Run: 2025-04-14T23:50:00
+2025-04-14 14:58:49,388 - INFO - Sleeping for 8.85 hours until next run.

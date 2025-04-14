@@ -13,3 +13,4 @@ WHISPER_PROMPT = "Transcribe the following audio file containing Marlborough, MA
 TRUNCATE_DSDPLUS_FILE = True # Adjust this if testing the script, so you don't delete your DSDPlus recording.
 RUN_IMMEDIATELY = True # Adjust this if testing the script, so you don't have to wait until the next run time.
 DSDPLUS_LAUNCH_ARGS = "-i4"
+FORCE_DSDPLUS_RESTART = False # Also, just for testing. If True, will kill and relaunch DSDPlus if it is already running.

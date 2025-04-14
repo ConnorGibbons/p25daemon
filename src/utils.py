@@ -5,16 +5,32 @@ import subprocess
 import time
 import config
 
-def launch_dsdplus():
+def DSDPlus_is_actively_decoding():
+    path = os.path.join(config.DSDPLUS_INSTALL_PATH, "DSDPlus.VoiceActive")
+    return os.path.exists(path)
+
+def launch_DSDPlus():
     path = os.path.join(config.DSDPLUS_INSTALL_PATH, "DSDPlus.exe")
     args = config.DSDPLUS_LAUNCH_ARGS.split()
     try:
-        subprocess.Popen([path] + args)
+        subprocess.Popen(
+            ["cmd", "/c", "start", "", path] + args,
+            cwd=config.DSDPLUS_INSTALL_PATH,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            stdin=subprocess.DEVNULL,
+            shell=True  # not strictly needed, but safe here
+        )
         return (True, None)
     except Exception as e:
-        return (False, e.__str__())
+        return (False, str(e))
     
-def kill_dsdplus():
+def kill_DSDPlus():
+    if DSDPlus_is_actively_decoding():
+        logging.info("DSDPlus is actively decoding, waiting 30 seconds and trying to kill again.")
+        time.sleep(30)
+        kill_DSDPlus()
+        return
     path = os.path.join(config.DSDPLUS_INSTALL_PATH, "DSDPlus.exe")
     try:
         subprocess.run(["taskkill", "/F", "/IM", os.path.basename(path)], check=True)
@@ -64,7 +80,7 @@ def truncate_file(path):
 
 def make_file_with_contents(path, contents):
     try:
-        with open(path, 'w', encoding = 'utf-8') as f:
+        with open(path, 'a', encoding = 'utf-8') as f:
             f.write(contents)
         return (True, None)
     except Exception as e:
