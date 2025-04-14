@@ -4,3 +4,18 @@
 2025-04-14 00:21:44,102 - INFO - Now: 2025-04-14T00:21:44.102989
 2025-04-14 00:21:44,102 - INFO - Next Run: 2025-04-15T00:01:00
 2025-04-14 00:21:44,103 - INFO - Sleeping for 23.65 hours until next run.
+2025-04-14 00:34:48,338 - INFO - Now: 2025-04-14T00:34:48.338728
+2025-04-14 00:34:48,338 - INFO - Next Run: 2025-04-15T00:01:00
+2025-04-14 00:34:48,338 - INFO - Sleeping for 23.44 hours until next run.
+2025-04-14 00:35:26,357 - INFO - Moved file from C:\Users\conno\Documents\DSDPlus1p101\DSDPlus.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 00:35:26,361 - INFO - Truncated file C:\Users\conno\Documents\DSDPlus1p101\DSDPlus.wav
+2025-04-14 00:38:29,079 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 00:38:29,152 - INFO - Now: 2025-04-14T00:38:29.152950
+2025-04-14 00:38:29,152 - INFO - Next Run: 2025-04-15T00:01:00
+2025-04-14 00:38:29,152 - INFO - Sleeping for 23.38 hours until next run.
+2025-04-14 00:44:14,838 - INFO - Moved file from C:\Users\conno\Documents\DSDPlus1p101\DSDPlus.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 00:44:14,842 - INFO - Truncated file C:\Users\conno\Documents\DSDPlus1p101\DSDPlus.wav
+2025-04-14 00:46:50,124 - INFO - Successfully transcribed \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Transcriptions\04.14.2025.txt
+2025-04-14 00:46:50,198 - INFO - Now: 2025-04-14T00:46:50.198567
+2025-04-14 00:46:50,198 - INFO - Next Run: 2025-04-15T00:01:00
+2025-04-14 00:46:50,198 - INFO - Sleeping for 23.24 hours until next run.

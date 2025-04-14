@@ -29,7 +29,7 @@ def sleep_until_next_run():
 
 def main():
     try:
-        log_handler = TimedRotatingFileHandler("logs/p25daemon", when="midnight", interval=1, backupCount=7)
+        log_handler = TimedRotatingFileHandler("logs/p25daemon.log", when="midnight", interval=1, backupCount=7)
         log_handler.suffix = "%m.%d.%Y.log"
         logging.basicConfig(level=logging.INFO, 
                         handlers=[log_handler, logging.StreamHandler()],

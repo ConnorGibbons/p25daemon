@@ -38,7 +38,7 @@ def truncate_file(path):
 
 def make_file_with_contents(path, contents):
     try:
-        with open(path, 'w') as f:
+        with open(path, 'w', encoding='utf-8') as f:
             f.write(contents)
         logging.info(f"Created file with contents at {path}")
         return (True, None)

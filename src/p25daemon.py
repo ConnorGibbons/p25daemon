@@ -23,12 +23,12 @@ def move_current_DSDPlus_recording():
 def transcribe_audio_file(audio_path, model):
     prompt = "Transcribe the following audio file containing Marlborough, MA police radio traffic."
     result = model.transcribe(audio_path, initial_prompt = prompt, language="en")
-
+    print(result.keys())
     if "segments" in result:
         transcript = "\n".join([segment["text"].strip() for segment in result["segments"]])
     else:
         transcript = result.get("text", "")
-
+    print(len(transcript))
     return transcript
 
 def move_and_transcribe(model):
@@ -43,7 +43,6 @@ def move_and_transcribe(model):
     except Exception as e:
         logging.error(f"Transcription failed: {e}")
         return
-
     if not transcription:
         logging.warning("Transcription completed but returned no text.")
         return
@@ -51,8 +50,9 @@ def move_and_transcribe(model):
     output_file_name = datetime.date.today().strftime(config.TRANSCRIPT_FILENAME_FORMAT)
     dest = os.path.join(config.TRANSCRIPT_ARCHIVE_PATH, output_file_name)
 
-    if not make_file_with_contents(dest, transcription):
-        logging.error(f"Failed to write transcription to {dest}")
+    make_file_result = make_file_with_contents(dest, transcription)
+    if not make_file_result[0]:
+        log_error("Error creating transcription file", make_file_result)
         return
 
     logging.info(f"Successfully transcribed {os.path.abspath(audio_path)} to {os.path.abspath(dest)}")
