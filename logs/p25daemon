@@ -1,0 +1,2 @@
+2025-04-14 00:18:42,189 - INFO - Moved file from C:\Users\conno\Documents\DSDPlus1p101\DSDPlus.wav to \\192.168.1.187\SharedFolder\Storage\DSD\Recordings\04.14.2025.wav
+2025-04-14 00:18:42,189 - ERROR - Error truncating DSDPlus recording: [Errno 13] Permission denied: 'C:\\Users\\conno\\Documents\\DSDPlus1p101\\DSDPlus.wav'
